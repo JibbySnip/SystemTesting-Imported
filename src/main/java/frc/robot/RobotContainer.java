@@ -53,6 +53,12 @@ public class RobotContainer {
     CANSparkMax rightMotor1 = new CANSparkMax(1, MotorType.kBrushless);
     CANSparkMax rightMotor2 = new CANSparkMax(2, MotorType.kBrushless);
     CANSparkMax rightMotor3 = new CANSparkMax(3, MotorType.kBrushless);
+    leftMotor1.setIdleMode(IdleMode.kCoast);
+    leftMotor2.setIdleMode(IdleMode.kCoast);
+    leftMotor3.setIdleMode(IdleMode.kCoast);
+    rightMotor1.setIdleMode(IdleMode.kCoast);
+    rightMotor2.setIdleMode(IdleMode.kCoast);
+    rightMotor3.setIdleMode(IdleMode.kCoast);
 
     // An ExampleCommand will run in autonomous
     return new SequentialCommandGroup(
