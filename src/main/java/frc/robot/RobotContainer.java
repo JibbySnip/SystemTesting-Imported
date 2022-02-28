@@ -10,7 +10,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.RunMotorsCommand;
+import frc.robot.commands.RunDriveMotorsCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.ParallelRaceGroup;
@@ -25,7 +25,6 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -63,13 +62,15 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return new SequentialCommandGroup(
       new ParallelRaceGroup(
-        new RunMotorsCommand(leftMotor1, rightMotor1),
+        new RunDriveMotorsCommand(leftMotor1, rightMotor1),
         new WaitCommand(3)),
+      new WaitCommand(1),
       new ParallelRaceGroup(
-        new RunMotorsCommand(leftMotor2, rightMotor2),
+        new RunDriveMotorsCommand(leftMotor2, rightMotor2),
         new WaitCommand(3)),
+      new WaitCommand(1),
       new ParallelRaceGroup(
-        new RunMotorsCommand(leftMotor3, rightMotor3),
+        new RunDriveMotorsCommand(leftMotor3, rightMotor3),
         new WaitCommand(3))
     );
   }
