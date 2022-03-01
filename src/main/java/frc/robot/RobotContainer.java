@@ -180,11 +180,9 @@ public class RobotContainer {
       new ParallelRaceGroup(
         new RunDriveMotorsCommand(leftMotor1, rightMotor1),
         new WaitCommand(3)),
-      new WaitCommand(1),
       new ParallelRaceGroup(
         new RunDriveMotorsCommand(leftMotor2, rightMotor2),
         new WaitCommand(3)),
-      new WaitCommand(1),
       new ParallelRaceGroup(
         new RunDriveMotorsCommand(leftMotor3, rightMotor3),
         new WaitCommand(3))
