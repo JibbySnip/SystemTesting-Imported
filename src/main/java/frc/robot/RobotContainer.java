@@ -147,7 +147,7 @@ public class RobotContainer {
   }
 
   public void doJoysticks() {
-    setDriveMotors(driveController.getAxisValue(Axis.LEFT_Y), driveController.getAxisValue(Axis.RIGHT_Y));
+    //setDriveMotors(driveController.getAxisValue(Axis.LEFT_Y), driveController.getAxisValue(Axis.RIGHT_Y));
     flywheel1.set(driveController.getAxisValue(Axis.RIGHT_TRIGGER));
     flywheel2.set(-driveController.getAxisValue(Axis.RIGHT_TRIGGER));
     intake.set(driveController.getAxisValue(Axis.LEFT_TRIGGER));
@@ -174,15 +174,25 @@ public class RobotContainer {
     rightMotor1.setIdleMode(IdleMode.kCoast);
     rightMotor2.setIdleMode(IdleMode.kCoast);
     rightMotor3.setIdleMode(IdleMode.kCoast);
+    leftMotor1.setInverted(false);
+    leftMotor2.setInverted(false);
+    leftMotor3.setInverted(false);
+    rightMotor1.setInverted(true);
+    rightMotor1.setInverted(true);
+    rightMotor1.setInverted(true);
+
+
 
     // An ExampleCommand will run in autonomous
     return new SequentialCommandGroup(
       new ParallelRaceGroup(
         new RunDriveMotorsCommand(leftMotor1, rightMotor1),
         new WaitCommand(3)),
+      new WaitCommand(1),
       new ParallelRaceGroup(
         new RunDriveMotorsCommand(leftMotor2, rightMotor2),
         new WaitCommand(3)),
+      new WaitCommand(1),
       new ParallelRaceGroup(
         new RunDriveMotorsCommand(leftMotor3, rightMotor3),
         new WaitCommand(3))
