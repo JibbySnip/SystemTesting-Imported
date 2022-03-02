@@ -33,7 +33,7 @@ public class RunDriveMotorsCommand extends CommandBase {
   @Override
   public void initialize() {
     leftMotor.set(0.1);
-    rightMotor.set(-0.1);
+    rightMotor.set(0.1);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
